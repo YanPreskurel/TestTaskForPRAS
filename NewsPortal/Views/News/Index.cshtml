@@ -1,0 +1,38 @@
+﻿@model IEnumerable<NewsPortal.Models.News>
+
+<h2>Новости</h2>
+
+<div id="news-container">
+    @await Html.PartialAsync("_NewsListPartial", Model)
+</div>
+
+<div class="text-center mt-3">
+    <button id="load-more" class="btn btn-outline-primary">Загрузить ещё</button>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        let currentPage = @ViewBag.CurrentPage;
+        const pageSize = @ViewBag.PageSize;
+        const totalCount = @ViewBag.TotalCount;
+
+        $("#load-more").on("click", function () {
+            currentPage++;
+            $.get("@Url.Action("Index", "News")", { page: currentPage, pageSize: pageSize }, function (data) {
+                if (data.trim().length === 0) {
+                    $("#load-more").hide();
+                } else {
+                    $("#news-container").append(data);
+                    if (currentPage * pageSize >= totalCount) {
+                        $("#load-more").hide();
+                    }
+                }
+            });
+        });
+
+        if (pageSize >= totalCount) {
+            $("#load-more").hide();
+        }
+    </script>
+}

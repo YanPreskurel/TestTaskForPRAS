@@ -1,0 +1,24 @@
+﻿@model NewsPortal.Models.News
+
+<div class="card mb-4 shadow-sm">
+    @if (!string.IsNullOrEmpty(Model.ImagePath))
+    {
+        <img src="@Model.ImagePath" class="card-img-top" style="max-height: 400px; object-fit: cover;" />
+    }
+    <div class="card-body">
+        <h2>@Model.Title</h2>
+
+        @if (!string.IsNullOrEmpty(Model.Subtitle))
+        {
+            <h5 class="text-muted">@Model.Subtitle</h5>
+        }
+
+        <p class="mt-3">@Html.Raw(Model.Body)</p>
+        <p class="text-muted">
+            <small>Опубликовано: @Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
+        </p>
+
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-2">На главную</a>
+        <a asp-controller="News" asp-action="Index" class="btn btn-secondary mt-2">К списку новостей</a>
+    </div>
+</div>

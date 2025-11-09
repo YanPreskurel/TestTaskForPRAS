@@ -1,0 +1,27 @@
+﻿@model IEnumerable<NewsPortal.Models.News>
+
+@foreach (var n in Model)
+{
+    <div class="card mb-4 shadow-sm">
+        @if (!string.IsNullOrEmpty(n.ImagePath))
+        {
+            <img src="@n.ImagePath" class="card-img-top" style="max-height: 300px; object-fit: cover;" />
+        }
+        <div class="card-body">
+            <h3 class="card-title">@n.Title</h3>
+
+            <p>
+                <a asp-action="Details" asp-route-id="@n.Id" class="btn btn-primary">Подробнее</a>
+            </p>
+
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <div class="mt-2">
+                    <a asp-action="Edit" asp-route-id="@n.Id" class="btn btn-sm btn-warning">Редактировать</a>
+                    <a asp-action="Delete" asp-route-id="@n.Id" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Удалить новость?')">Удалить</a>
+                </div>
+            }
+        </div>
+    </div>
+}
