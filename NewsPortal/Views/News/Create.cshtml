@@ -1,27 +1,37 @@
-﻿@model NewsPortal.Models.News
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model NewsPortal.ViewModels.NewsCreateEditViewModel
+@inject IViewLocalizer Localizer
 
-<h2>Добавить новость</h2>
+<h2>@Localizer["AddNews"]</h2>
 
 <form asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="form-group mb-3">
-        <label>Заголовок</label>
+        <label>@Localizer["Title"]</label>
         <input asp-for="Title" class="form-control" />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
+
     <div class="form-group mb-3">
-        <label>Подзаголовок</label>
+        <label>@Localizer["Subtitle"]</label>
         <input asp-for="Subtitle" class="form-control" />
+        <span asp-validation-for="Subtitle" class="text-danger"></span>
     </div>
+
     <div class="form-group mb-3">
-        <label>Изображение</label>
-        <input type="file" name="imageFile" class="form-control" />
+        <label>@Localizer["Image"]</label>
+        <input asp-for="ImageFile" type="file" class="form-control" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
+
     <div class="form-group mb-3">
-        <label>Текст</label>
+        <label>@Localizer["Body"]</label>
         <textarea asp-for="Body" rows="6" class="form-control"></textarea>
         <span asp-validation-for="Body" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-success">Создать</button>
+
+    <input type="hidden" asp-for="Language" />
+
+    <button type="submit" class="btn btn-success">@Localizer["Create"]</button>
 </form>
 
 @section Scripts {

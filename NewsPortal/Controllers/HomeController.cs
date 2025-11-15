@@ -1,24 +1,23 @@
-// HomeController.cs
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NewsPortal.Data;
+using Microsoft.AspNetCore.Localization;
+using NewsPortal.Repositories;
 
 public class HomeController : BaseController
 {
-    private readonly AppDbContext _context;
+    private readonly INewsRepository _newsRepository;
 
-    public HomeController(AppDbContext context)
+    public HomeController(INewsRepository newsRepository)
     {
-        _context = context;
+        _newsRepository = newsRepository;
     }
 
     public async Task<IActionResult> Index()
     {
-        var latestNews = await _context.News
-            .OrderByDescending(n => n.CreatedAt)
-            .Take(3)
-            .ToListAsync();
+        // Определяем текущий язык пользователя
+        var feature = HttpContext.Features.Get<IRequestCultureFeature>();
+        string language = feature?.RequestCulture.UICulture.TwoLetterISOLanguageName ?? "ru";
 
+        var latestNews = await _newsRepository.GetLatestAsync(3, language);
         return View(latestNews);
     }
 }

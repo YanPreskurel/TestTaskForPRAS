@@ -1,10 +1,25 @@
-﻿@model IEnumerable<NewsPortal.Models.News>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model IEnumerable<NewsPortal.Models.News>
+@inject IViewLocalizer Localizer
 
-<h2>Последние новости</h2>
+<h2>@Localizer["LatestNews"]</h2>
 
 <div class="row">
     @foreach (var n in Model)
     {
+        var translation = n.Translations.FirstOrDefault();
+        if (translation == null)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p>@Localizer["TranslationNotFound"]</p>
+                    </div>
+                </div>
+            </div>
+            continue;
+        }
+
         <div class="col-md-4 mb-3">
             <div class="card h-100">
                 @if (!string.IsNullOrEmpty(n.ImagePath))
@@ -12,8 +27,10 @@
                     <img src="@n.ImagePath" class="card-img-top" style="height: 200px; object-fit: cover;" />
                 }
                 <div class="card-body">
-                    <h5 class="card-title">@n.Title</h5>
-                    <a asp-controller="News" asp-action="Details" asp-route-id="@n.Id" class="btn btn-primary mt-2">Подробнее</a>
+                    <h5 class="card-title">@translation.Title</h5>
+                    <a asp-controller="News" asp-action="Details" asp-route-id="@n.Id" class="btn btn-primary mt-2">
+                        @Localizer["ReadMore"]
+                    </a>
                 </div>
             </div>
         </div>

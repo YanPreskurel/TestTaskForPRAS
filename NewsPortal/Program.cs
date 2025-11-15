@@ -1,21 +1,31 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
 using NewsPortal.Data;
+using NewsPortal.Repositories;
+using NewsPortal.Services;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Добавляем сервисы локализации
+// Локализация
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()
     .AddDataAnnotationsLocalization();
 
+// DB
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// DI
+builder.Services.AddScoped<INewsRepository, NewsRepository>();
+builder.Services.AddScoped<INewsService, NewsService>();
+builder.Services.AddScoped<IAdminUserRepository, AdminUserRepository>();
+builder.Services.AddScoped<IAdminUserService, AdminUserService>();
+builder.Services.AddScoped<ITranslationService, GoogleTranslationService>();
+
+// Auth
 builder.Services.AddAuthentication("AdminCookie")
     .AddCookie("AdminCookie", options =>
     {
@@ -25,33 +35,28 @@ builder.Services.AddAuthentication("AdminCookie")
 
 var app = builder.Build();
 
-// Настройка локалей
-var supportedCultures = new[] { new CultureInfo("en"), new CultureInfo("ru") };
+// НАСТРОЙКА КУЛЬТУР — ПРАВИЛЬНО
+var supportedCultures = new[] { "ru", "en" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture("ru")
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
 
-var localizationOptions = new RequestLocalizationOptions
-{
-    DefaultRequestCulture = new RequestCulture("ru"),
-    SupportedCultures = supportedCultures,
-    SupportedUICultures = supportedCultures
-};
-
-// QueryString провайдер первым, чтобы язык менялся через ?culture=...
-localizationOptions.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
-// Cookie провайдер, чтобы выбранный язык сохранялся
-localizationOptions.RequestCultureProviders.Add(new CookieRequestCultureProvider());
-
+// Применение локализации
 app.UseRequestLocalization(localizationOptions);
 
+// Middlewares
 app.UseStaticFiles();
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
+// MVC
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Создание админа
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();

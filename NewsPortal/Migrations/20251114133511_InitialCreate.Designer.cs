@@ -12,7 +12,7 @@ using NewsPortal.Data;
 namespace NewsPortal.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251109172635_InitialCreate")]
+    [Migration("20251114133511_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -58,15 +58,38 @@ namespace NewsPortal.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Body")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("News");
+                });
+
+            modelBuilder.Entity("NewsPortal.Models.NewsTranslation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Body")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<int>("NewsId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Subtitle")
                         .HasMaxLength(300)
@@ -79,7 +102,25 @@ namespace NewsPortal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("News");
+                    b.HasIndex("NewsId");
+
+                    b.ToTable("NewsTranslations");
+                });
+
+            modelBuilder.Entity("NewsPortal.Models.NewsTranslation", b =>
+                {
+                    b.HasOne("NewsPortal.Models.News", "News")
+                        .WithMany("Translations")
+                        .HasForeignKey("NewsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("News");
+                });
+
+            modelBuilder.Entity("NewsPortal.Models.News", b =>
+                {
+                    b.Navigation("Translations");
                 });
 #pragma warning restore 612, 618
         }

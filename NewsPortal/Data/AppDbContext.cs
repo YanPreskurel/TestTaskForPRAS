@@ -8,6 +8,7 @@ namespace NewsPortal.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<News> News { get; set; }
+        public DbSet<NewsTranslation> NewsTranslations { get; set; }
         public DbSet<AdminUser> AdminUsers { get; set; }
     }
 }

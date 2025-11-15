@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] NewsPortal</title>
+    <title>@ViewData["Title"] @Localizer["NewsPortal"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/NewsPortal.styles.css" asp-append-version="true" />
@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom shadow-sm mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NewsPortal</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["NewsPortal"]</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,10 +21,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">News</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">@Localizer["News"]</a>
                         </li>
                     </ul>
 
@@ -47,17 +47,17 @@
                         @if (User.Identity?.IsAuthenticated ?? false)
                         {
                             <li class="nav-item me-2">
-                                <a class="btn btn-success btn-sm" asp-controller="News" asp-action="Create">Создать новость</a>
+                                <a class="btn btn-success btn-sm" asp-controller="News" asp-action="Create">@Localizer["CreateNews"]</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-danger" asp-controller="Account" asp-action="Logout">Logout</a>
+                                <a class="nav-link text-danger" asp-controller="Account" asp-action="Logout">@Localizer["Logout"]</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                                <a class="nav-link" asp-controller="Account" asp-action="Login">@Localizer["Login"]</a>
                             </li>
                         }
                     </ul>

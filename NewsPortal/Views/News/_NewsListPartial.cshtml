@@ -2,13 +2,16 @@
 
 @foreach (var n in Model)
 {
+    var translation = n.Translations.FirstOrDefault();
+    if (translation == null) continue;
+
     <div class="card mb-4 shadow-sm">
         @if (!string.IsNullOrEmpty(n.ImagePath))
         {
             <img src="@n.ImagePath" class="card-img-top" style="max-height: 300px; object-fit: cover;" />
         }
         <div class="card-body">
-            <h3 class="card-title">@n.Title</h3>
+            <h3 class="card-title">@translation.Title</h3>
 
             <p>
                 <a asp-action="Details" asp-route-id="@n.Id" class="btn btn-primary">Подробнее</a>

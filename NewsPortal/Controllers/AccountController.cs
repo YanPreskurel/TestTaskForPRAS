@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NewsPortal.Data;
 using NewsPortal.Models;
+using NewsPortal.Services;
 using System.Security.Claims;
-using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -12,11 +13,11 @@ namespace NewsPortal.Controllers
 {
     public class AccountController : BaseController
     {
-        private readonly AppDbContext _context;
+        private readonly IAdminUserService _userService;
 
-        public AccountController(AppDbContext context)
+        public AccountController(IAdminUserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -31,10 +32,7 @@ namespace NewsPortal.Controllers
                 return View();
             }
 
-            string hash = ComputeSha256Hash(password);
-
-            var user = await _context.AdminUsers
-                .FirstOrDefaultAsync(u => u.Email == email && u.PasswordHash == hash);
+            var user = await _userService.AuthenticateAsync(email, password);
 
             if (user == null)
             {
@@ -60,16 +58,6 @@ namespace NewsPortal.Controllers
         {
             await HttpContext.SignOutAsync("AdminCookie");
             return RedirectToAction("Login");
-        }
-
-        private static string ComputeSha256Hash(string rawData)
-        {
-            using var sha256 = SHA256.Create();
-            var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-            var sb = new StringBuilder();
-            foreach (var b in bytes)
-                sb.Append(b.ToString("x2"));
-            return sb.ToString();
         }
     }
 }

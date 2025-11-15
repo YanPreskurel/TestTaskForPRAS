@@ -1,13 +1,16 @@
-﻿@model IEnumerable<NewsPortal.Models.News>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
-<h2>Новости</h2>
+@model IEnumerable<NewsPortal.Models.News>
+
+<h2>@Localizer["NewsHeader"]</h2>
 
 <div id="news-container">
     @await Html.PartialAsync("_NewsListPartial", Model)
 </div>
 
 <div class="text-center mt-3">
-    <button id="load-more" class="btn btn-outline-primary">Загрузить ещё</button>
+    <button id="load-more" class="btn btn-outline-primary">@Localizer["LoadMore"]</button>
 </div>
 
 @section Scripts {

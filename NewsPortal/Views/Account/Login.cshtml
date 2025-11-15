@@ -1,16 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Вход в систему";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["LoginTitle"];
 }
 
-<h2 class="mb-3">Вход администратора</h2>
+<h2 class="mb-3">@Localizer["LoginHeader"]</h2>
 
 <form asp-action="Login" method="post" class="p-3 border rounded bg-light" style="max-width:400px">
     <div class="form-group mb-3">
-        <label>Email</label>
+        <label>@Localizer["Email"]</label>
         <input type="email" name="email" class="form-control" required />
     </div>
+
     <div class="form-group mb-3">
-        <label>Пароль</label>
+        <label>@Localizer["Password"]</label>
         <input type="password" name="password" class="form-control" required />
     </div>
 
@@ -19,5 +23,5 @@
         <div class="alert alert-danger">@ViewBag.Error</div>
     }
 
-    <button type="submit" class="btn btn-primary w-100">Войти</button>
+    <button type="submit" class="btn btn-primary w-100">@Localizer["LoginButton"]</button>
 </form>
