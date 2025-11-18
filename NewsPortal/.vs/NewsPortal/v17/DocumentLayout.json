@@ -3,12 +3,64 @@
   "WorkspaceRootPath": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\services\\libretranslateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:services\\libretranslateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\repositories\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:repositories\\newsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\viewmodels\\newscreateeditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:viewmodels\\newscreateeditviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\views\\news\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:views\\news\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\views\\news\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:views\\news\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\services\\itranslationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:services\\itranslationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\repositories\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:repositories\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\views\\news\\_newslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:views\\news\\_newslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\services\\iadminuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:services\\iadminuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\services\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:services\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\models\\newstranslation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|solutionrelative:models\\newstranslation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8D580C15-D3A5-4D8E-A443-16A926B33D39}|NewsPortal.csproj|d:\\commits\\testtaskforpras\\newsportal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -22,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,33 +90,188 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\News\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\News\\Create.cshtml",
-              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\News\\Create.cshtml",
-              "RelativeToolTip": "Views\\News\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-15T21:44:39.868Z",
+              "DocumentIndex": 0,
+              "Title": "LibreTranslateService.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\LibreTranslateService.cs",
+              "RelativeDocumentMoniker": "Services\\LibreTranslateService.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\LibreTranslateService.cs",
+              "RelativeToolTip": "Services\\LibreTranslateService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:38:21.225Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "NewsRepository.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Repositories\\NewsRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\NewsRepository.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Repositories\\NewsRepository.cs",
+              "RelativeToolTip": "Repositories\\NewsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:34:50.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NewsService.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\NewsService.cs",
+              "RelativeDocumentMoniker": "Services\\NewsService.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\NewsService.cs",
+              "RelativeToolTip": "Services\\NewsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:34:32.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NewsCreateEditViewModel.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\ViewModels\\NewsCreateEditViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\NewsCreateEditViewModel.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\ViewModels\\NewsCreateEditViewModel.cs",
+              "RelativeToolTip": "ViewModels\\NewsCreateEditViewModel.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAIwFMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:35:49.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "NewsController.cs",
               "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Controllers\\NewsController.cs",
               "RelativeDocumentMoniker": "Controllers\\NewsController.cs",
               "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Controllers\\NewsController.cs",
               "RelativeToolTip": "Controllers\\NewsController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAswDIAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAqwMAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-15T21:44:20.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-15T21:44:20.966Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:35:12.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\News\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\News\\Edit.cshtml",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\News\\Edit.cshtml",
+              "RelativeToolTip": "Views\\News\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T15:12:26.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\News\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\News\\Create.cshtml",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\News\\Create.cshtml",
+              "RelativeToolTip": "Views\\News\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-15T21:44:39.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ITranslationService.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\ITranslationService.cs",
+              "RelativeDocumentMoniker": "Services\\ITranslationService.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\ITranslationService.cs",
+              "RelativeToolTip": "Services\\ITranslationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:40:32.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "INewsRepository.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Repositories\\INewsRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\INewsRepository.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Repositories\\INewsRepository.cs",
+              "RelativeToolTip": "Repositories\\INewsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:34:45.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_NewsListPartial.cshtml",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\News\\_NewsListPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\News\\_NewsListPartial.cshtml",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\News\\_NewsListPartial.cshtml",
+              "RelativeToolTip": "Views\\News\\_NewsListPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T14:25:22.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-17T14:34:58.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IAdminUserService.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\IAdminUserService.cs",
+              "RelativeDocumentMoniker": "Services\\IAdminUserService.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\IAdminUserService.cs",
+              "RelativeToolTip": "Services\\IAdminUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:36:03.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "INewsService.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\INewsService.cs",
+              "RelativeDocumentMoniker": "Services\\INewsService.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Services\\INewsService.cs",
+              "RelativeToolTip": "Services\\INewsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:34:27.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "NewsTranslation.cs",
+              "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Models\\NewsTranslation.cs",
+              "RelativeDocumentMoniker": "Models\\NewsTranslation.cs",
+              "ToolTip": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Models\\NewsTranslation.cs",
+              "RelativeToolTip": "Models\\NewsTranslation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:34:16.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Commits\\TestTaskForPRAS\\NewsPortal\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -72,8 +279,7 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-15T21:41:10.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-15T21:41:10.144Z"
             }
           ]
         },

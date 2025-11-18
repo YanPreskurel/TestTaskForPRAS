@@ -1,4 +1,7 @@
-﻿@model IEnumerable<NewsPortal.Models.News>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model IEnumerable<NewsPortal.Models.News>
 
 @foreach (var n in Model)
 {
@@ -14,15 +17,23 @@
             <h3 class="card-title">@translation.Title</h3>
 
             <p>
-                <a asp-action="Details" asp-route-id="@n.Id" class="btn btn-primary">Подробнее</a>
+                <a asp-action="Details" asp-route-id="@n.Id" class="btn btn-primary">
+                    @Localizer["More"]
+                </a>
             </p>
 
             @if (User.Identity?.IsAuthenticated ?? false)
             {
                 <div class="mt-2">
-                    <a asp-action="Edit" asp-route-id="@n.Id" class="btn btn-sm btn-warning">Редактировать</a>
-                    <a asp-action="Delete" asp-route-id="@n.Id" class="btn btn-sm btn-danger"
-                       onclick="return confirm('Удалить новость?')">Удалить</a>
+                    <a asp-action="Edit" asp-route-id="@n.Id" class="btn btn-sm btn-warning">
+                        @Localizer["Edit"]
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@n.Id"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('@Localizer["DeleteConfirm"]')">
+                        @Localizer["Delete"]
+                    </a>
                 </div>
             }
         </div>

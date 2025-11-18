@@ -178,6 +178,8 @@ D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.Resources.View
 D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.Resources.Views.News.Edit.ru.resources
 D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.Resources.Views.News.Index.en.resources
 D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.Resources.Views.News.Index.ru.resources
+D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.Resources.Views.News._NewsListPartial.en.resources
+D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.Resources.Views.News._NewsListPartial.ru.resources
 D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.Resources.Views.Shared._Layout.en.resources
 D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.Resources.Views.Shared._Layout.ru.resources
 D:\Commits\TestTaskForPRAS\NewsPortal\obj\Debug\net8.0\NewsPortal.csproj.GenerateResource.cache

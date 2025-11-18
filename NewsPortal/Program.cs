@@ -23,7 +23,8 @@ builder.Services.AddScoped<INewsRepository, NewsRepository>();
 builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IAdminUserRepository, AdminUserRepository>();
 builder.Services.AddScoped<IAdminUserService, AdminUserService>();
-builder.Services.AddScoped<ITranslationService, GoogleTranslationService>();
+
+builder.Services.AddHttpClient<ITranslationService, LibreTranslateService>();
 
 // Auth
 builder.Services.AddAuthentication("AdminCookie")

@@ -7,13 +7,11 @@ namespace NewsPortal.Services
     public class NewsService : INewsService
     {
         private readonly INewsRepository _repository;
-        private readonly ITranslationService _translationService;
         private readonly ITranslationService _translator;
 
-        public NewsService(INewsRepository repository, ITranslationService translationService, ITranslationService translator)
+        public NewsService(INewsRepository repository, ITranslationService translator)
         {
             _repository = repository;
-            _translationService = translationService;
             _translator = translator;
         }
 
@@ -47,8 +45,58 @@ namespace NewsPortal.Services
             await _repository.UpdateAsync(news, translated);
         }
 
-        public async Task UpdateAsync(News news, NewsTranslation translation)
-            => await _repository.UpdateAsync(news, translation);
+        public async Task UpdateAsync(News news, NewsTranslation editedTranslation)
+        {
+            // 1. Обновляем текущий перевод
+            await _repository.UpdateAsync(news, editedTranslation);
+
+            // 2. Определяем язык второго перевода
+            string sourceLang = editedTranslation.Language;
+            string targetLang = sourceLang == "ru" ? "en" : "ru";
+
+            // 3. Ищем второй перевод
+            var secondTranslation = news.Translations
+                .FirstOrDefault(t => t.Language == targetLang);
+
+            // Переводим текст
+            string translatedTitle =
+                await _translator.TranslateAsync(editedTranslation.Title, sourceLang, targetLang);
+
+            string? translatedSubtitle = !string.IsNullOrEmpty(editedTranslation.Subtitle)
+                ? await _translator.TranslateAsync(editedTranslation.Subtitle, sourceLang, targetLang)
+                : null;
+
+            string translatedBody =
+                await _translator.TranslateAsync(editedTranslation.Body, sourceLang, targetLang);
+
+            if (secondTranslation == null)
+            {
+                // 4. Если нет второй модели — создаём
+                secondTranslation = new NewsTranslation
+                {
+                    NewsId = news.Id,
+                    Language = targetLang,
+                    Title = translatedTitle,
+                    Subtitle = translatedSubtitle,
+                    Body = translatedBody
+                };
+
+                news.Translations.Add(secondTranslation);
+
+                // добавляем через репозиторий
+                await _repository.UpdateAsync(news, secondTranslation);
+            }
+            else
+            {
+                // 5. Если вторая модель есть — обновляем
+                secondTranslation.Title = translatedTitle;
+                secondTranslation.Subtitle = translatedSubtitle;
+                secondTranslation.Body = translatedBody;
+
+                await _repository.UpdateAsync(news, secondTranslation);
+            }
+        }
+
 
         public async Task DeleteAsync(int id)
             => await _repository.DeleteAsync(id);
@@ -75,11 +123,11 @@ namespace NewsPortal.Services
                 {
                     NewsId = news.Id,
                     Language = targetLanguage,
-                    Title = await _translationService.TranslateAsync(existingTranslation.Title, existingTranslation.Language, targetLanguage),
+                    Title = await _translator.TranslateAsync(existingTranslation.Title, existingTranslation.Language, targetLanguage),
                     Subtitle = existingTranslation.Subtitle != null
-                        ? await _translationService.TranslateAsync(existingTranslation.Subtitle, existingTranslation.Language, targetLanguage)
+                        ? await _translator.TranslateAsync(existingTranslation.Subtitle, existingTranslation.Language, targetLanguage)
                         : null,
-                    Body = await _translationService.TranslateAsync(existingTranslation.Body, existingTranslation.Language, targetLanguage)
+                    Body = await _translator.TranslateAsync(existingTranslation.Body, existingTranslation.Language, targetLanguage)
                 };
 
                 news.Translations.Add(newTranslation);
