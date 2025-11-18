@@ -13,7 +13,6 @@ public class HomeController : BaseController
 
     public async Task<IActionResult> Index()
     {
-        // Определяем текущий язык пользователя
         var feature = HttpContext.Features.Get<IRequestCultureFeature>();
         string language = feature?.RequestCulture.UICulture.TwoLetterISOLanguageName ?? "ru";
 

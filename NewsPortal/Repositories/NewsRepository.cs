@@ -26,10 +26,10 @@ namespace NewsPortal.Repositories
         public async Task<int> GetCountAsync() =>
             await _context.News.CountAsync();
 
-        public async Task<News?> GetByIdAsync(int id, string language)
+        public async Task<News?> GetByIdAsync(int id)
         {
             return await _context.News
-                .Include(n => n.Translations.Where(t => t.Language == language))
+                .Include(n => n.Translations)
                 .FirstOrDefaultAsync(n => n.Id == id);
         }
 
@@ -51,8 +51,8 @@ namespace NewsPortal.Repositories
 
         public async Task UpdateAsync(News news, NewsTranslation translation)
         {
-            _context.News.Update(news);
             _context.NewsTranslations.Update(translation);
+            _context.News.Update(news);
             await _context.SaveChangesAsync();
         }
 

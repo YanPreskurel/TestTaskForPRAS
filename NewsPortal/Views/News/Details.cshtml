@@ -3,13 +3,19 @@
 @model NewsPortal.Models.News
 
 @{
-    var translation = Model.Translations.FirstOrDefault();
+    var currentLang = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+
+    var translation = Model.Translations
+        .FirstOrDefault(t => t.Language == currentLang)
+        ?? Model.Translations.FirstOrDefault();
+
     if (translation == null)
     {
         <p>@Localizer["TranslationNotFound"]</p>
         return;
     }
 }
+
 
 <div class="card mb-4 shadow-sm">
     @if (!string.IsNullOrEmpty(Model.ImagePath))

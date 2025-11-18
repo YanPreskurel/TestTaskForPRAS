@@ -19,10 +19,8 @@ namespace NewsPortal.ViewModels
 
         public string? ImagePath { get; set; }
 
-        [Required(ErrorMessage = "Image is required")]
         public IFormFile? ImageFile { get; set; }
 
-        // Текущий язык, на котором создают или редактируют новость ("ru" или "en")
         [Required]
         [StringLength(5)]
         public string Language { get; set; } = "ru";
@@ -31,13 +29,12 @@ namespace NewsPortal.ViewModels
         {
             var results = new List<ValidationResult>();
 
-            // Проверка картинки
-            if (ImageFile == null && string.IsNullOrEmpty(ImagePath))
+            if (Id == null) 
             {
-                results.Add(new ValidationResult("Image is required.", new[] { nameof(ImageFile) }));
+                if (ImageFile == null && string.IsNullOrEmpty(ImagePath))
+                    results.Add(new ValidationResult("Image is required.", new[] { nameof(ImageFile) }));
             }
 
-            // Нормализуем язык
             var lang = (Language ?? "ru").Trim().ToLowerInvariant();
             var allowed = new[] { "ru", "en" };
 
@@ -47,10 +44,11 @@ namespace NewsPortal.ViewModels
                 return results;
             }
 
-            // Проверка каждого текстового поля отдельно
             CheckTextField(Title, lang, nameof(Title), results);
+
             if (!string.IsNullOrEmpty(Subtitle))
                 CheckTextField(Subtitle, lang, nameof(Subtitle), results);
+
             CheckTextField(Body, lang, nameof(Body), results);
 
             return results;

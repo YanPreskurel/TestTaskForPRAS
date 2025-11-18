@@ -9,7 +9,7 @@ public class BaseController : Controller
         var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
         var currentCulture = rqf.RequestCulture.Culture.Name;
 
-        ViewBag.CurrentCulture = currentCulture.ToUpper(); // RU или EN
+        ViewBag.CurrentCulture = currentCulture.ToUpper();
         ViewBag.SwitchCulture = currentCulture == "ru" ? "en" : "ru";
 
         base.OnActionExecuting(context);

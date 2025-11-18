@@ -10,7 +10,6 @@ namespace NewsPortal.Models
         public int NewsId { get; set; }
         public News News { get; set; }
 
-        // "ru", "en", "de" и т.д.
         [Required]
         [StringLength(5)]
         public string Language { get; set; }

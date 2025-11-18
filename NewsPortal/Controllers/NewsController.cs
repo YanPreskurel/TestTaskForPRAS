@@ -25,7 +25,7 @@ namespace NewsPortal.Controllers
             return feature?.RequestCulture.UICulture.TwoLetterISOLanguageName ?? "ru";
         }
 
-        // GET: /News
+        // -------------------- INDEX --------------------
         [AllowAnonymous]
         public async Task<IActionResult> Index(int page = 1, int pageSize = 5)
         {
@@ -42,7 +42,7 @@ namespace NewsPortal.Controllers
             return View(news);
         }
 
-        // GET: /News/Create
+        // -------------------- CREATE --------------------
         public IActionResult Create()
         {
             return View(new NewsCreateEditViewModel
@@ -51,15 +51,12 @@ namespace NewsPortal.Controllers
             });
         }
 
-        // POST: /News/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(NewsCreateEditViewModel model)
         {
             if (!TryValidateModel(model))
-            {
                 return View(model);
-            }
 
             string lang = (model.Language ?? "ru").Trim().ToLowerInvariant();
 
@@ -84,52 +81,51 @@ namespace NewsPortal.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: /News/Edit/5
+        // -------------------- EDIT (GET) --------------------
         public async Task<IActionResult> Edit(int id)
         {
             string lang = GetCurrentLanguage();
-            var news = await _newsService.GetByIdAsync(id, lang);
+            var news = await _newsService.GetByIdAsync(id);
             if (news == null)
                 return NotFound();
 
             var translation = news.Translations.FirstOrDefault(t => t.Language == lang);
-            if (translation == null)
-            {
-                return View(new NewsCreateEditViewModel
-                {
-                    Id = news.Id,
-                    Title = string.Empty,
-                    Subtitle = string.Empty,
-                    Body = string.Empty,
-                    ImagePath = news.ImagePath,
-                    Language = lang
-                });
-            }
 
             return View(new NewsCreateEditViewModel
             {
                 Id = news.Id,
-                Title = translation.Title,
-                Subtitle = translation.Subtitle,
-                Body = translation.Body,
+                Title = translation?.Title ?? string.Empty,
+                Subtitle = translation?.Subtitle ?? string.Empty,
+                Body = translation?.Body ?? string.Empty,
                 ImagePath = news.ImagePath,
                 Language = lang
             });
         }
 
-        // POST: /News/Edit
+        // -------------------- EDIT (POST) --------------------
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(NewsCreateEditViewModel model)
         {
             if (!TryValidateModel(model))
+            {
+                // VERY IMPORTANT FIX: keep existing image when validation fails
+                if (model.Id != null)
+                {
+                    var existingNews = await _newsService.GetByIdAsync(model.Id.Value);
+                    model.ImagePath = existingNews?.ImagePath;
+                }
+
                 return View(model);
+            }
+
 
             if (model.Id == null)
                 return BadRequest();
 
             string lang = (model.Language ?? "ru").Trim().ToLowerInvariant();
-            var news = await _newsService.GetByIdAsync(model.Id.Value, lang);
+            var news = await _newsService.GetByIdAsync(model.Id.Value);
+
             if (news == null)
                 return NotFound();
 
@@ -156,25 +152,27 @@ namespace NewsPortal.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: /News/Delete/5
+        // -------------------- DELETE --------------------
         public async Task<IActionResult> Delete(int id)
         {
             await _newsService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: /News/Details/5
+        // -------------------- DETAILS --------------------
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             string lang = GetCurrentLanguage();
-            var news = await _newsService.GetByIdAsync(id, lang);
+            var news = await _newsService.GetByIdAsync(id);
+
             if (news == null)
                 return NotFound();
 
             return View(news);
         }
 
+        // -------------------- IMAGE SAVE --------------------
         private async Task<string> SaveNewsImageAsync(IFormFile file)
         {
             var uploads = Path.Combine(_env.WebRootPath, "uploads");

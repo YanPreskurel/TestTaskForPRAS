@@ -6,6 +6,7 @@
 
 <form asp-action="Edit" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="Language" />
 
     <div class="form-group mb-3">
         <label>@Localizer["Title"]</label>
@@ -23,7 +24,7 @@
         {
             <img src="@Model.ImagePath" width="150" class="mb-2" />
         }
-        <input type="file" name="imageFile" class="form-control" />
+        <input type="file" asp-for="ImageFile" class="form-control" />
     </div>
 
     <div class="form-group mb-3">

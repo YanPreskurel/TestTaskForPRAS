@@ -32,6 +32,7 @@ namespace NewsPortal.Services
             var json = await response.Content.ReadAsStringAsync();
 
             using var doc = JsonDocument.Parse(json);
+
             return doc.RootElement.GetProperty("translatedText").GetString() ?? text;
         }
     }
