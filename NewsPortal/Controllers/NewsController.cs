@@ -25,7 +25,6 @@ namespace NewsPortal.Controllers
             return feature?.RequestCulture.UICulture.TwoLetterISOLanguageName ?? "ru";
         }
 
-        // -------------------- INDEX --------------------
         [AllowAnonymous]
         public async Task<IActionResult> Index(int page = 1, int pageSize = 5)
         {
@@ -42,7 +41,6 @@ namespace NewsPortal.Controllers
             return View(news);
         }
 
-        // -------------------- CREATE --------------------
         public IActionResult Create()
         {
             return View(new NewsCreateEditViewModel
@@ -81,7 +79,6 @@ namespace NewsPortal.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // -------------------- EDIT (GET) --------------------
         public async Task<IActionResult> Edit(int id)
         {
             string lang = GetCurrentLanguage();
@@ -102,14 +99,12 @@ namespace NewsPortal.Controllers
             });
         }
 
-        // -------------------- EDIT (POST) --------------------
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(NewsCreateEditViewModel model)
         {
             if (!TryValidateModel(model))
             {
-                // VERY IMPORTANT FIX: keep existing image when validation fails
                 if (model.Id != null)
                 {
                     var existingNews = await _newsService.GetByIdAsync(model.Id.Value);
@@ -152,14 +147,12 @@ namespace NewsPortal.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // -------------------- DELETE --------------------
         public async Task<IActionResult> Delete(int id)
         {
             await _newsService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-        // -------------------- DETAILS --------------------
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
@@ -172,7 +165,6 @@ namespace NewsPortal.Controllers
             return View(news);
         }
 
-        // -------------------- IMAGE SAVE --------------------
         private async Task<string> SaveNewsImageAsync(IFormFile file)
         {
             var uploads = Path.Combine(_env.WebRootPath, "uploads");
